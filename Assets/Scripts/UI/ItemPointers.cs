@@ -59,8 +59,12 @@ public class ItemPointers : MonoBehaviour
     [SerializeField]
     Transform homeBase;
 
+    [SerializeField]
+    RectTransform canvas;
+
     void Start()
     {
+        DetermineSize();
         bothPointer = transform.Find("Both Pointer").gameObject;
         packagePointer = transform.Find("Package Pointer").gameObject;
         packageRectTransform = packagePointer.GetComponent<RectTransform>();
@@ -69,6 +73,14 @@ public class ItemPointers : MonoBehaviour
         baseRectTransform = basePointer.GetComponent<RectTransform>();
         baseImage = transform.Find("Base Pointer").GetComponent<Image>();
         bothRectTransform = transform.Find("Both Pointer").GetComponent<RectTransform>();
+    }
+
+    public void DetermineSize()
+    {
+        while (CountCornersVisibleFrom(canvas, uiCamera) < 4)
+        {
+            uiCamera.orthographicSize++;
+        }
     }
 
     // Update is called once per frame
@@ -171,5 +183,24 @@ public class ItemPointers : MonoBehaviour
         Vector3 dir = (toPosition - player.position).normalized;
         float angle = Vector2.SignedAngle(Vector2.up, dir);
         rect.localEulerAngles = new Vector3(0, 0, angle);
+    }
+
+    int CountCornersVisibleFrom(RectTransform rectTransform, Camera camera)
+    {
+        Rect screenBounds = new Rect(0f, 0f, Screen.width, Screen.height); // Screen space bounds (assumes camera renders across the entire screen)
+        Vector3[] objectCorners = new Vector3[4];
+        rectTransform.GetWorldCorners(objectCorners);
+
+        int visibleCorners = 0;
+        Vector3 tempScreenSpaceCorner; // Cached
+        for (var i = 0; i < objectCorners.Length; i++) // For each corner in rectTransform
+        {
+            tempScreenSpaceCorner = camera.WorldToScreenPoint(objectCorners[i]); // Transform world space position of corner to screen space
+            if (screenBounds.Contains(tempScreenSpaceCorner)) // If the corner is inside the screen
+            {
+                visibleCorners++;
+            }
+        }
+        return visibleCorners;
     }
 }
