@@ -120,6 +120,7 @@ public class Enemy : MonoBehaviour
                 GetComponentsInChildren<ParticleSystem>()[1].Play();
             }
             enemyDamageSoundEffect.Play();
+            collision.gameObject.SetActive(false);
         }
 
         if (collision.CompareTag("Screen Bounds"))

@@ -36,6 +36,8 @@ public class Grapple : MonoBehaviour
     [SerializeField]
     float ropeChangeRate = 0.01f;
 
+    bool firstGrapple = true;
+
     AudioSource soundEffect;
 
     void Start()
@@ -133,7 +135,13 @@ public class Grapple : MonoBehaviour
             activePoint = grapplePoint;
             grapplePos = grapplePoint.transform.position;
             joint.distance = Vector2.Distance(transform.position, grapplePos);
-        }       
+        }     
+        
+        if (firstGrapple)
+        {
+            player.isKinematic = false;
+            firstGrapple = false;
+        }
     }
 
     public void Pull(GameObject grapplePoint)
@@ -148,7 +156,13 @@ public class Grapple : MonoBehaviour
             grapplePos = grapplePoint.transform.position;
             pullDirection = grapplePos - player.position;
             grappleFrame = true;
-        }    
+        }
+
+        if (firstGrapple)
+        {
+            player.isKinematic = false;
+            firstGrapple = false;
+        }
     }
 
     public void Ungrapple()
