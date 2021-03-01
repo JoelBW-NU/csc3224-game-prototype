@@ -7,8 +7,6 @@ public class Cell : MonoBehaviour
 {
     [HideInInspector]
     public Grid grid;
-    public enum CellPosition { CENTER, TOP, LEFT, BOTTOM, RIGHT, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
-    public CellPosition position;
 
     BoxCollider2D cellCollider;
     public float grapplePointDist = 0.5f;
@@ -16,8 +14,7 @@ public class Cell : MonoBehaviour
     [HideInInspector]
     public GameObject grapplePointPrefab;
 
-    [SerializeField]
-    float cellPadding = 1f;
+    int RADIUS_LAYER_ID = 8;
 
     List<GrapplePoint> grapplePoints;
 
@@ -37,16 +34,20 @@ public class Cell : MonoBehaviour
     void Populate(int numPoints)
     {
         int pointsPlaced = 0;
-        //Vector2 prevPosition = new Vector2(cellCollider.bounds.center.x, cellCollider.bounds.center.y);
 
         while (pointsPlaced < numPoints)
-        {
-            Vector2 position = new Vector2(Random.Range(cellCollider.bounds.min.x + cellPadding, cellCollider.bounds.max.x - cellPadding), Random.Range(cellCollider.bounds.min.y + cellPadding, cellCollider.bounds.max.y - cellPadding));
-            GrapplePoint grapplePoint = Instantiate(grapplePointPrefab, position, Quaternion.identity).GetComponent<GrapplePoint>();
-            grapplePoint.grapple = grid.playerGrapple;
-            grapplePoints.Add(grapplePoint);
-            //prevPosition = position;
-            ++pointsPlaced;
+        {           
+            Vector2 position = new Vector2(Random.Range(cellCollider.bounds.min.x, cellCollider.bounds.max.x), Random.Range(cellCollider.bounds.min.y, cellCollider.bounds.max.y));
+            Collider2D col = Physics2D.OverlapCircle(position, 2, 1 << RADIUS_LAYER_ID);
+
+            if (col == null || !col.CompareTag("Grapple Point Outer"))
+            {
+                GrapplePoint grapplePoint = Instantiate(grapplePointPrefab, position, Quaternion.identity).GetComponent<GrapplePoint>();
+                grapplePoint.transform.parent = transform;
+                grapplePoint.grapple = grid.playerGrapple;
+                grapplePoints.Add(grapplePoint);
+                ++pointsPlaced;
+            }
         }
     }
 

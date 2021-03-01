@@ -29,19 +29,32 @@ public class GrapplePoint : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Time.timeScale != 0)
         {
-            grapple.GrappleToPoint(gameObject);
-            grappled = true;
-            countdownBegun = true;
-        }
+            if (Input.GetMouseButtonDown(1))
+            {
+                grapple.Pull(gameObject);
+                grappled = true;
+                countdownBegun = true;
+            }
 
-        GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);
+            if (Input.GetMouseButtonDown(0))
+            {
+                grapple.Swing(gameObject);
+                grappled = true;
+                countdownBegun = true;
+            }
+
+            GetComponent<SpriteRenderer>().color = new Color(0, 1, 0);
+        }       
     }
 
     void OnMouseExit()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+        if (Time.timeScale != 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+        }
     }
 
     void Update()
@@ -53,7 +66,7 @@ public class GrapplePoint : MonoBehaviour
         }
         
         if (elapsedTime >= grappleLifetime)
-        {
+        {          
             DestroyPoint();
         }
     }

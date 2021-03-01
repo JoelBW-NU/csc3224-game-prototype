@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
     float speed = 1;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         Vector3 tempVect = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         transform.position += tempVect * speed * Time.deltaTime;
+    }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }

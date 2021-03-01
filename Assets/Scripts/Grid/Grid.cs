@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+    public enum CellPosition { TOP, BOTTOM, LEFT, RIGHT };
+
     [SerializeField]
     GameObject grapplePointPrefab;
 
@@ -47,22 +49,22 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public bool NewCell(Cell.CellPosition position, Vector2 cellCenter)
+    public bool NewCell(CellPosition position, Vector2 cellCenter)
     {
         Vector2 newCellCenter;
 
         switch (position)
         {
-            case Cell.CellPosition.TOP:
+            case CellPosition.TOP:
                 newCellCenter = new Vector2(cellCenter.x, cellCenter.y + scaleY);
                 break;
-            case Cell.CellPosition.BOTTOM:
+            case CellPosition.BOTTOM:
                 newCellCenter = new Vector2(cellCenter.x, cellCenter.y - scaleY);
                 break;
-            case Cell.CellPosition.LEFT:
+            case CellPosition.LEFT:
                 newCellCenter = new Vector2(cellCenter.x - scaleX, cellCenter.y);
                 break;
-            case Cell.CellPosition.RIGHT:
+            case CellPosition.RIGHT:
                 newCellCenter = new Vector2(cellCenter.x + scaleX, cellCenter.y);
                 break;
             default:

@@ -21,19 +21,19 @@ public class CellEdge : MonoBehaviour
         {
             if (edge == Edge.TOP)
             {
-                grid.NewCell(Cell.CellPosition.TOP, transform.parent.position);
+                grid.NewCell(Grid.CellPosition.TOP, transform.parent.position);
             } 
             else if (edge == Edge.BOTTOM)
             {
-                grid.NewCell(Cell.CellPosition.BOTTOM, transform.parent.position);
+                grid.NewCell(Grid.CellPosition.BOTTOM, transform.parent.position);
             }
             else if (edge == Edge.LEFT)
             {
-                grid.NewCell(Cell.CellPosition.LEFT, transform.parent.position);
+                grid.NewCell(Grid.CellPosition.LEFT, transform.parent.position);
             }
             else if (edge == Edge.RIGHT)
             {
-                grid.NewCell(Cell.CellPosition.RIGHT, transform.parent.position);
+                grid.NewCell(Grid.CellPosition.RIGHT, transform.parent.position);
             }
         }
 

@@ -11,6 +11,12 @@ TagManager:
   - Edge Top
   - Edge Bottom
   - Grapple Point Outer
+  - Player Projectile
+  - Enemy
+  - Enemy Projectile
+  - Cell
+  - Package Pointer
+  - Base Pointer
   layers:
   - Default
   - TransparentFX
@@ -20,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Grapple Spawn Radius
+  - End Game UI
   - 
   - 
   - 
