@@ -85,6 +85,7 @@ public class GameLogic : MonoBehaviour
         {
             isPlaying = false;
             Time.timeScale = 0;
+            grapple.Ungrapple();
             grapple.enabled = false;
             UI.Pause();         
         }
@@ -156,7 +157,6 @@ public class GameLogic : MonoBehaviour
     {
         isPlaying = false;
         Time.timeScale = 0;
-        Time.fixedDeltaTime = 0;
         int totalPackagesDelivered = packagesCollected + packagesDelivered;
         int score = (enemiesKilled * enemiesKilledScore) + (totalPackagesDelivered * collectPackagesScore) + (packagesDelivered * deliveredPackagesScore);
         if (score > PlayerPrefs.GetInt("highscore", 0))
