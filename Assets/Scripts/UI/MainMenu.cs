@@ -66,14 +66,14 @@ public class MainMenu : MonoBehaviour
     void Play()
     {
         fade = true;
-        fadeCounter = timeToFade;
-        game.StartGame(timeToFade);
         play.interactable = false;
         howToPlay.interactable = false;
         controls.interactable = false;
         howToPlayBack.interactable = false;
         controls.interactable = false;
         quit.interactable = false;
+        fadeCounter = timeToFade;
+        game.StartGame(timeToFade);    
     }
 
     void OpenHowToPlay()

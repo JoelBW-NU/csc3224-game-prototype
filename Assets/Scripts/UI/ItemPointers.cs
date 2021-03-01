@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class FindPackage : MonoBehaviour
+public class ItemPointers : MonoBehaviour
 {
     [SerializeField]
     Transform player;
@@ -47,6 +47,9 @@ public class FindPackage : MonoBehaviour
 
     [SerializeField]
     float borderTopSize = 4;
+
+    [SerializeField]
+    float borderBottomSize = 10;
 
     Image packageImage;
 
@@ -100,7 +103,7 @@ public class FindPackage : MonoBehaviour
 
             if (cappedTargetScreenPosition.x <= borderSize) cappedTargetScreenPosition.x = borderSize;
             if (cappedTargetScreenPosition.x >= Screen.width - borderSize) cappedTargetScreenPosition.x = Screen.width - borderSize;
-            if (cappedTargetScreenPosition.y <= borderSize) cappedTargetScreenPosition.y = borderSize;
+            if (cappedTargetScreenPosition.y <= borderBottomSize) cappedTargetScreenPosition.y = borderBottomSize;
             if (cappedTargetScreenPosition.y >= Screen.height - borderTopSize) cappedTargetScreenPosition.y = Screen.height - borderTopSize;       
 
             Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(cappedTargetScreenPosition);
@@ -128,7 +131,7 @@ public class FindPackage : MonoBehaviour
             Vector3 cappedTargetScreenPosition = targetPositionScreenPointer;
             if (cappedTargetScreenPosition.x <= borderSize) cappedTargetScreenPosition.x = borderSize;
             if (cappedTargetScreenPosition.x >= Screen.width - borderSize) cappedTargetScreenPosition.x = Screen.width - borderSize;
-            if (cappedTargetScreenPosition.y <= borderSize) cappedTargetScreenPosition.y = borderSize;
+            if (cappedTargetScreenPosition.y <= borderBottomSize) cappedTargetScreenPosition.y = borderBottomSize;
             if (cappedTargetScreenPosition.y >= Screen.height - borderTopSize) cappedTargetScreenPosition.y = Screen.height - borderTopSize;
 
             Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(cappedTargetScreenPosition);

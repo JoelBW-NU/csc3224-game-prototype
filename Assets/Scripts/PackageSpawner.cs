@@ -20,7 +20,7 @@ public class PackageSpawner : MonoBehaviour
     GameObject packagePrefab;
 
     [SerializeField]
-    FindPackage packageFinder;
+    ItemPointers packageFinder;
 
     [SerializeField]
     GameLogic game;

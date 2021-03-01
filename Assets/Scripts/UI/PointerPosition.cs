@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PointerTextPosition : MonoBehaviour
+public class PointerPosition : MonoBehaviour
 {
     [SerializeField]
     float rightPos;
@@ -33,15 +33,6 @@ public class PointerTextPosition : MonoBehaviour
             packageText.GetComponent<Text>().alignment = TextAnchor.UpperRight;
             baseText.localPosition = new Vector3(leftPos, baseText.transform.localPosition.y, baseText.transform.localPosition.z);
             baseText.GetComponent<Text>().alignment = TextAnchor.UpperRight;
-        }
-
-        if (transform.position.y < Screen.height/2)
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, 10, transform.localPosition.z);
-        }
-        else
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
         }
     }
 }
