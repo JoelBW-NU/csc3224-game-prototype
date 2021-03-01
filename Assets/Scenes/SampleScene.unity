@@ -153,7 +153,7 @@ RectTransform:
   - {fileID: 1425376643}
   - {fileID: 1574445062}
   m_Father: {fileID: 1412867590}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4035,7 +4035,7 @@ RectTransform:
   - {fileID: 1890540436}
   - {fileID: 688523005}
   m_Father: {fileID: 1412867590}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5696,9 +5696,9 @@ RectTransform:
   m_Father: {fileID: 1412867590}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279, y: 267}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 261, y: -33}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188335387
@@ -6429,9 +6429,9 @@ RectTransform:
   - {fileID: 1954753730}
   - {fileID: 247213507}
   - {fileID: 1188335386}
+  - {fileID: 1748998584}
   - {fileID: 928799116}
   - {fileID: 49541532}
-  - {fileID: 1748998584}
   m_Father: {fileID: 428599221}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6466,6 +6466,8 @@ MonoBehaviour:
   howToPlayBack: {fileID: 688523006}
   controlsPanel: {fileID: 49541531}
   controlsBack: {fileID: 1574445063}
+  devToolsPanel: {fileID: 1748998585}
+  devToolsText: {fileID: 1472827132}
 --- !u!114 &1412867592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7773,11 +7775,11 @@ RectTransform:
   m_Children:
   - {fileID: 1472827131}
   m_Father: {fileID: 1412867590}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: 252}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -120, y: -48}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748998585

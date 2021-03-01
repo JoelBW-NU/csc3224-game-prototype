@@ -51,6 +51,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     Button controlsBack;
 
+    [SerializeField]
+    Image devToolsPanel;
+
+    [SerializeField]
+    Text devToolsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +123,8 @@ public class MainMenu : MonoBehaviour
             controls.GetComponentInChildren<Text>().color = fadeCol;
             quit.GetComponent<Image>().color = fadeCol;
             quit.GetComponentInChildren<Text>().color = fadeCol;
+            devToolsPanel.color = fadeCol;
+            devToolsText.color = fadeCol;
             highScore.color = fadeCol;
             if (fadeCounter <= 0)
             {
